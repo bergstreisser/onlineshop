@@ -2,6 +2,7 @@ function App() {
   return (
     <div className="wrapper clear">
       <header className="d-flex justify-between align-center p-40">
+
         <div className="d-flex align-center">
           <img alt="logo" width={65} height={55} src="/img/logo.jpg" />
           <div className="headerInfo">
@@ -9,6 +10,7 @@ function App() {
             <p className="opacity-5">Hier kannst du Bilder kaufen...</p>
           </div>
         </div>
+
         <ul className="d-flex">
           <li className="mr-30">
             <img alt="cart" width={18} height={18} src="/img/cart.svg" />
@@ -18,12 +20,22 @@ function App() {
           <img alt="user" width={18} height={18} src="/img/user.svg" />
           </li>
         </ul>
+        
       </header>
+
       <div className="content p-40">
-        <h1 className="mb-40">Alle Bilder</h1>
+
+        <div className="d-flex mb-40 align-center justify-between"> 
+        <h1>Alle Bilder</h1>
+        <div className="search-block d-flex">
+          <img src="/img/search.svg" alt="Search" />
+          <input placeholder="suchen... " />
+        </div>
+        </div>
 
         <div className="d-flex justify-between">
         <div className="card">
+          <img className="btn-unliked" src="/img/heart-unliked.svg" alt="Unliked" />
           <img width={155} height={135} src="/img/pictures/01.jpg" alt="Bild1" />
           <h5>Der schönste Wasserfall</h5>  
           <div className="d-flex justify-between align-center">
@@ -32,7 +44,7 @@ function App() {
               <b>99 Euro</b>
             </div>
             <button className="button">
-              <img width={11} height={11} src="/img/plus.svg" alt="Plus" />
+              <img className="btn-img" src="/img/plus.svg" alt="Plus" />
             </button>
           </div>
         </div>
@@ -46,7 +58,7 @@ function App() {
               <b>99 Euro</b>
             </div>
             <button className="button">
-              <img width={11} height={11} src="/img/plus.svg" alt="Plus" />
+              <img className="btn-img" src="/img/plus.svg" alt="Plus" />
             </button>
           </div>
         </div>
@@ -60,7 +72,7 @@ function App() {
               <b>99 Euro</b>
             </div>
             <button className="button">
-              <img width={11} height={11} src="/img/plus.svg" alt="Plus" />
+              <img className="btn-img" src="/img/plus.svg" alt="Plus" />
             </button>
           </div>
         </div>
@@ -74,7 +86,7 @@ function App() {
               <b>99 Euro</b>
             </div>
             <button className="button">
-              <img width={11} height={11} src="/img/plus.svg" alt="Plus" />
+              <img className="btn-img" src="/img/plus.svg" alt="Plus" />
             </button>
           </div>
         </div>

@@ -32,12 +32,25 @@ header {
   }
 }
 
+.btn-unliked {
+  position: absolute;
+  cursor: pointer;
+  height: 28px;
+  width: 28px;
+}
+
 .card {
   border: 1px solid #e5e5e5;
   padding: 20px;
   width: 200px;
   border-radius: 10px;
-  margin-right: 50px;
+  margin-right: 5px;
+  transition: box-shadow 0.2s ease-in-out, transform 0.2 ease-in-out;
+
+  &:hover {
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.05);
+    transform: translateY(-5px);
+  }
 
   span {
     font-size: 12px;
@@ -55,12 +68,26 @@ header {
 }
 
 .button {
-  background: #FFFFFF;
-  border: 1px solid #dedede;
-  box-sizing: border-box;
-  border-radius: 8px;
+  border: 0px;
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+
+.btn-img {
   height: 28px;
   width: 28px;
-  cursor: pointer;
+}
+
+.search-block {
+  border: 1px solid #f3f3f3;
+  border-radius: 7px;
+  padding: 0 10px;
+  margin-right: 5px;
+
+  input {
+    border: 0;
+    padding: 10px;
+    width: 150px;
+  }
 }
         
