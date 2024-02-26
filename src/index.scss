@@ -1,0 +1,66 @@
+body {
+  margin: 0;
+  font-family: system-ui;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f7ead55a;
+}
+
+.wrapper {
+  background: #FFFFFF;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  max-width: 1080px;
+  margin: 50px auto;
+}
+
+header { 
+  border-bottom: 1px solid #eaeaea;
+
+  img {
+    margin-right: 15px;
+  }
+
+  h3, p {
+    margin: 0;
+  }
+}
+
+.content {
+  h1 {
+    margin: 0;
+  }
+}
+
+.card {
+  border: 1px solid #e5e5e5;
+  padding: 20px;
+  width: 200px;
+  border-radius: 10px;
+  margin-right: 50px;
+
+  span {
+    font-size: 12px;
+    opacity: 0.5;
+  }
+
+  b {
+    font-size: 12px;
+  }
+
+  h5 {
+    font-weight: 400;
+    font-size: 14px;
+  }
+}
+
+.button {
+  background: #FFFFFF;
+  border: 1px solid #dedede;
+  box-sizing: border-box;
+  border-radius: 8px;
+  height: 28px;
+  width: 28px;
+  cursor: pointer;
+}
+        
