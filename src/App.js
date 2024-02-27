@@ -1,7 +1,32 @@
 function App() {
   return (
     <div className="wrapper clear">
-      <header className="d-flex justify-between align-center p-40">
+      <div className="overlay">
+        <div className="drawer">
+          <h2>Einkaufswagen</h2>
+
+          <div className="cartItem mb-20 d-flex align-center">
+            <img className="mr-20" width={80} height={70} src="/img/pictures/01.jpg" alt="Bild1" />
+            <div className="mr-20">
+              <p className="mb-5">Der schönste Wasserfall</p>
+              <b>99 Euro</b>
+            </div>
+            <img className="removeBtn" src="/img/remove.svg" alt="Remove" />
+          </div>
+
+          <div className="cartItem mb-20 d-flex align-center">
+            <img className="mr-20" width={80} height={70} src="/img/pictures/01.jpg" alt="Bild1" />
+            <div className="mr-20">
+              <p className="mb-5">Der schönste Wasserfall</p>
+              <b>99 Euro</b>
+            </div>
+            <img className="removeBtn" src="/img/remove.svg" alt="Remove" />
+          </div>
+
+        </div>
+      </div>
+      
+      <header className="d-flex justify-between align-center p-40"> 
 
         <div className="d-flex align-center">
           <img alt="logo" width={65} height={55} src="/img/logo.jpg" />
@@ -35,7 +60,7 @@ function App() {
 
         <div className="d-flex justify-between">
         <div className="card">
-          <img className="btn-unliked" src="/img/heart-unliked.svg" alt="Unliked" />
+          <img className="btn-unliked" src="/img/heart-unliked.png" alt="Unliked" />
           <img width={155} height={135} src="/img/pictures/01.jpg" alt="Bild1" />
           <h5>Der schönste Wasserfall</h5>  
           <div className="d-flex justify-between align-center">
