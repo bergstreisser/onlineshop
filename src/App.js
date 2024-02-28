@@ -3,7 +3,11 @@ function App() {
     <div className="wrapper clear">
       <div className="overlay">
         <div className="drawer">
-          <h2 className="mb-30">Einkaufswagen</h2>
+
+          <div className="d-flex justify-between">
+            <h2 className="mb-30">Einkaufswagen</h2>
+            <img className="removeBtn mr-15" src="/img/remove.svg" alt="Remove" />
+          </div> 
 
           <div className="items">
             <div className="cartItem mb-20 d-flex align-center">
@@ -14,7 +18,14 @@ function App() {
               </div>
               <img className="removeBtn" src="/img/remove.svg" alt="Remove" />
             </div>
-
+            <div className="cartItem mb-20 d-flex align-center">
+              <img className="mr-20" width={80} height={70} src="/img/pictures/01.jpg" alt="Bild1" />
+              <div className="mr-20">
+                <p className="mb-5">Der schönste Wasserfall</p>
+                <b>99 Euro</b>
+              </div>
+              <img className="removeBtn" src="/img/remove.svg" alt="Remove" />
+            </div>
             <div className="cartItem mb-20 d-flex align-center">
               <img className="mr-20" width={80} height={70} src="/img/pictures/01.jpg" alt="Bild1" />
               <div className="mr-20">
@@ -26,21 +37,21 @@ function App() {
           </div>
 
           <div className="cartTotalBlock">
-          <ul>
-            <li>
-              <span>Gesamt:</span>
-              <div></div>
-              <b>99 Euro</b>
-            </li>
-            <li>
-              <span>Ust. 19%</span>
-              <div></div>
-              <b>18,81 Euro</b>
-            </li>
-          </ul>
-          <div>
-            <button className="greenButton">Bestellung abschließen<img src="/img/arrow.svg" alt="Arrow"/></button>
-          </div>
+            <ul>
+              <li>
+                <span>Gesamt:</span>
+                <div></div>
+                <b>99 Euro</b>
+              </li>
+              <li>
+                <span>Ust. 19%</span>
+                <div></div>
+                <b>18,81 Euro</b>
+              </li>
+            </ul>
+            <div>
+              <button className="greenButton">Bestellung abschließen<img src="/img/arrow.svg" alt="Arrow" /></button>
+            </div>
           </div>
         </div>
       </div>
