@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Picture() {
+function Card() {
 
     const text = 'Hallo...';
 
@@ -12,4 +12,4 @@ function Picture() {
 
 }
 
-export default Picture;
+export default Card;
