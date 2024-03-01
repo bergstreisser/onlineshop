@@ -6,22 +6,26 @@ const arr = [
   {
     title: 'sdfdsfdsfdsfdsf',
     price: 25,
-    url: '/img/pictures/01.jpg'
+    url: '/img/pictures/01.jpg',
+    alt: 'Bild1'
   },
   {
     title: 'sdfdsfdsfdsfdsf',
     price: 25,
-    url: '/img/pictures/02.jpg'
+    url: '/img/pictures/02.jpg',
+    alt: 'Bild1'
   },
   {
     title: 'sdfdsfdsfdsfdsf',
     price: 25,
-    url: '/img/pictures/03.jpg'
+    url: '/img/pictures/03.jpg',
+    alt: 'Bild1'
   },
   {
     title: 'sdfdsfdsfdsfdsf',
     price: 25,
-    url: '/img/pictures/04.jpg'
+    url: '/img/pictures/04.jpg',
+    alt: 'Bild1'
   },
 ];
 
@@ -48,8 +52,7 @@ function App() {
                 title = {obj.title}
                 price = {obj.price}
                 url = {obj.url}
-                onLikeClick = {() => alert(12345)}
-                onAddClick = {() => alert(1234)} 
+                alt = {obj.alt}
               />
             ))
           }
