@@ -33,41 +33,6 @@ header {
   }
 }
 
-.btn-unliked {
-  position: absolute;
-  cursor: pointer;
-  height: 28px;
-  width: 28px;
-}
-
-.card {
-  border: 1px solid #e5e5e5;
-  padding: 20px;
-  width: 200px;
-  border-radius: 10px;
-  margin-right: 5px;
-  transition: box-shadow 0.2s ease-in-out, transform 0.2 ease-in-out;
-
-  &:hover {
-    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.05);
-    transform: translateY(-5px);
-  }
-
-  span {
-    font-size: 12px;
-    opacity: 0.5;
-  }
-
-  b {
-    font-size: 12px;
-  }
-
-  h5 {
-    font-weight: 400;
-    font-size: 14px;
-  }
-}
-
 .button {
   border: none;
   background-color: #FFFFFF;
