@@ -1,40 +1,30 @@
-function Basket() {
+function Basket({ onClose, items = [] }) {
     return (
-        <div style={{ display: 'none' }} className="overlay">
+        <div className="overlay">
             <div className="basket">
 
                 <div className="d-flex justify-between">
                     <h2 className="mb-30">Einkaufswagen</h2>
-                    <img className="removeBtn mr-15" src="/img/close.svg" alt="Remove" />
+                    <img onClick={onClose} className="closeBtn mr-15" src="/img/close.svg" alt="Remove" />
                 </div>
 
                 <div className="items">
-                    <div className="cartItem mb-20 d-flex align-center">
-                        <img className="mr-20" width={80} height={70} src="/img/pictures/01.jpg" alt="Bild1" />
-                        <div className="mr-20">
-                            <p className="mb-5">Der schönste Wasserfall</p>
-                            <b>99 Euro</b>
-                        </div>
-                        <img className="removeBtn" src="/img/remove.svg" alt="Remove" />
-                    </div>
+                    {
+                        items.map((item) => (
+                            <div className="cartItem mb-20 d-flex">
+                                <img className="mr-20" width={120} height={70} src={item.url} alt={item.alt} />
 
-                    <div className="cartItem mb-20 d-flex align-center">
-                        <img className="mr-20" width={80} height={70} src="/img/pictures/01.jpg" alt="Bild1" />
-                        <div className="mr-20">
-                            <p className="mb-5">Der schönste Wasserfall</p>
-                            <b>99 Euro</b>
-                        </div>
-                        <img className="removeBtn" src="/img/remove.svg" alt="Remove" />
-                    </div>
+                                <div className="cardPos d-flex justify-between align-center">
+                                    <div className="d-flex flex-column">
+                                        <span>{item.title}</span>
+                                        <b>{item.price} Euro</b>
+                                    </div>
+                                    <img className="removeBtn" src="/img/remove.svg" alt="Remove" />
+                                </div>
 
-                    <div className="cartItem mb-20 d-flex align-center">
-                        <img className="mr-20" width={80} height={70} src="/img/pictures/01.jpg" alt="Bild1" />
-                        <div className="mr-20">
-                            <p className="mb-5">Der schönste Wasserfall</p>
-                            <b>99 Euro</b>
-                        </div>
-                        <img className="removeBtn" src="/img/remove.svg" alt="Remove" />
-                    </div>
+                            </div>
+                        ))
+                    }
                 </div>
 
                 <div className="cartTotalBlock">

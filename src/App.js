@@ -1,39 +1,35 @@
+import React from 'react';
 import Basket from './components/Basket';
 import Card from './components/Card';
 import Header from './components/Header';
 
-const arr = [
-  {
-    title: 'sdfdsfdsfdsfdsf',
-    price: 25,
-    url: '/img/pictures/01.jpg',
-    alt: 'Bild1'
-  },
-  {
-    title: 'sdfdsfdsfdsfdsf',
-    price: 25,
-    url: '/img/pictures/02.jpg',
-    alt: 'Bild1'
-  },
-  {
-    title: 'sdfdsfdsfdsfdsf',
-    price: 25,
-    url: '/img/pictures/03.jpg',
-    alt: 'Bild1'
-  },
-  {
-    title: 'sdfdsfdsfdsfdsf',
-    price: 25,
-    url: '/img/pictures/04.jpg',
-    alt: 'Bild1'
-  },
-];
-
 function App() {
+  const [items, setItems] = React.useState([]);
+  const [cartItems, setCartItems] = React.useState([]);
+  const [cartOpened, setCartOpened] = React.useState(false);
+
+  React.useEffect(() => {
+    fetch("https://65e5b5d4d7f0758a76e7220e.mockapi.io/items")
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        setItems(json);
+      });
+  }, []);
+
+  const onAddToCart = (obj) => {
+    if (cartItems.title === obj.title) {
+
+    } else {
+      setCartItems(prev => [...prev, obj]);
+    }
+  }
+
   return (
     <div className="wrapper clear">
-      <Basket />
-      <Header />
+      {cartOpened && <Basket items = {cartItems} onClose = {() => setCartOpened(false)} />} 
+      <Header onClickCart={() => setCartOpened(true)} />
 
       <div className="content p-40">
 
@@ -45,14 +41,16 @@ function App() {
           </div>
         </div>
 
-        <div className="d-flex">
+        <div className="d-flex flex-wrap">
           {
-            arr.map((obj) => (
+            items.map((item) => (
               <Card
-                title = {obj.title}
-                price = {obj.price}
-                url = {obj.url}
-                alt = {obj.alt}
+                title={item.title}
+                price={item.price}
+                url={item.url}
+                alt={item.alt}
+                onLike = {() => console.log('test')}
+                onPlus = {(obj) => onAddToCart(obj)}
               />
             ))
           }
