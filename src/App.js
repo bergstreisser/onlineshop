@@ -6,6 +6,7 @@ import Header from './components/Header';
 function App() {
   const [items, setItems] = React.useState([]);
   const [cartItems, setCartItems] = React.useState([]);
+  const [searchValue, setSearchValue] = React.useState('');
   const [cartOpened, setCartOpened] = React.useState(false);
 
   React.useEffect(() => {
@@ -19,38 +20,44 @@ function App() {
   }, []);
 
   const onAddToCart = (obj) => {
-    if (cartItems.title === obj.title) {
+    setCartItems(prev => [...prev, obj])
+  }
 
-    } else {
-      setCartItems(prev => [...prev, obj]);
-    }
+  const onChangeSearchInput = (event) => {
+    setSearchValue(event.target.value);
   }
 
   return (
     <div className="wrapper clear">
-      {cartOpened && <Basket items = {cartItems} onClose = {() => setCartOpened(false)} />} 
+      {/* wenn cartOpened ist true, dann wird Basket abgebildet */}
+      {cartOpened && <Basket items={cartItems} onClose={() => setCartOpened(false)} />}
       <Header onClickCart={() => setCartOpened(true)} />
 
       <div className="content p-40">
 
         <div className="d-flex mb-40 align-center justify-between">
-          <h1>Alle Bilder</h1>
+          <h1>{searchValue ? `Suche nach: "${searchValue}"` : 'Alle Bilder'}</h1>
           <div className="search-block d-flex">
-            <img src="/img/search.svg" alt="Search" />
-            <input placeholder="suchen... " />
+            <img className="searchIcon" src="/img/search.svg" alt="Search" />
+            <input onChange={onChangeSearchInput} value={searchValue} placeholder="suchen... " />
+            {searchValue && <img onClick={() => setSearchValue('')} className="closeSearchBtn" src="/img/close.svg" alt="Close" />}
           </div>
         </div>
 
         <div className="d-flex flex-wrap">
           {
-            items.map((item) => (
+            //map rendert so oft, wieviel Elemente in items sind
+            //index ist notwendig, wenn ein Element gelöscht werden muss 
+            items.filter((item) => item.title.toLowerCase().includes(searchValue.toLocaleLowerCase()))
+            .map((item, index) => (
               <Card
+                key={index}
                 title={item.title}
                 price={item.price}
                 url={item.url}
                 alt={item.alt}
-                onLike = {() => console.log('test')}
-                onPlus = {(obj) => onAddToCart(obj)}
+                onLike={() => console.log('test')}
+                onPlus={(obj) => onAddToCart(obj)}
               />
             ))
           }
