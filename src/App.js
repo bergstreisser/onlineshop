@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Basket from './components/Basket';
 import Card from './components/Card';
 import Header from './components/Header';
@@ -10,17 +11,30 @@ function App() {
   const [cartOpened, setCartOpened] = React.useState(false);
 
   React.useEffect(() => {
-    fetch("https://65e5b5d4d7f0758a76e7220e.mockapi.io/items")
-      .then((response) => {
-        return response.json();
-      })
-      .then((json) => {
-        setItems(json);
-      });
+    // fetch("https://65e5b5d4d7f0758a76e7220e.mockapi.io/items")
+    //   .then((response) => {
+    //     return response.json();
+    //   })
+    //   .then((json) => {
+    //     setItems(json);
+    //   });
+
+    axios.get('https://65e5b5d4d7f0758a76e7220e.mockapi.io/items').then(res => {
+      setItems(res.data);
+    });
+    axios.get('https://65e5b5d4d7f0758a76e7220e.mockapi.io/cart').then(res => {
+      setCartItems(res.data);
+    });
   }, []);
 
   const onAddToCart = (obj) => {
-    setCartItems(prev => [...prev, obj])
+    axios.post('https://65e5b5d4d7f0758a76e7220e.mockapi.io/cart', obj);
+    setCartItems(prev => [...prev, obj]);
+  }
+
+  const onRemoveItem = (id) => {
+    axios.delete(`https://65e5b5d4d7f0758a76e7220e.mockapi.io/cart/${id}`); 
+    setCartItems(prev => prev.filter(item => item.id !== id));
   }
 
   const onChangeSearchInput = (event) => {
@@ -30,7 +44,7 @@ function App() {
   return (
     <div className="wrapper clear">
       {/* wenn cartOpened ist true, dann wird Basket abgebildet */}
-      {cartOpened && <Basket items={cartItems} onClose={() => setCartOpened(false)} />}
+      {cartOpened && <Basket items={cartItems} onClose={() => setCartOpened(false)} onRemove={onRemoveItem} />}
       <Header onClickCart={() => setCartOpened(true)} />
 
       <div className="content p-40">
@@ -49,17 +63,17 @@ function App() {
             //map rendert so oft, wieviel Elemente in items sind
             //index ist notwendig, wenn ein Element gelöscht werden muss 
             items.filter((item) => item.title.toLowerCase().includes(searchValue.toLocaleLowerCase()))
-            .map((item, index) => (
-              <Card
-                key={index}
-                title={item.title}
-                price={item.price}
-                url={item.url}
-                alt={item.alt}
-                onLike={() => console.log('test')}
-                onPlus={(obj) => onAddToCart(obj)}
-              />
-            ))
+              .map((item, index) => (
+                <Card
+                  key={index}
+                  title={item.title}
+                  price={item.price}
+                  url={item.url}
+                  alt={item.alt}
+                  onLike={() => console.log('test')}
+                  onPlus={(obj) => onAddToCart(obj)}
+                />
+              ))
           }
         </div>
 
