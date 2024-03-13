@@ -11,6 +11,7 @@ function Card({title, url, alt, price, onLike, onPlus}) {
     }
 
     const onClickLike = () => {
+        onLike({ title, url, alt, price });
         setIsLiked(!isLiked);
     }
 
