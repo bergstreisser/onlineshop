@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '../components/Card';
+import Data from '../data/db.json';
 
 function Home({ 
     items, 
@@ -26,16 +27,13 @@ function Home({
                 {
                     //map rendert so oft, wieviel Elemente in items sind
                     //index ist notwendig, wenn ein Element gelöscht werden muss 
-                    items.filter((item) => item.title.toLowerCase().includes(searchValue.toLocaleLowerCase()))
+                    Data.filter((item) => item.title.toLowerCase().includes(searchValue.toLocaleLowerCase()))
                         .map((item, index) => (
                             <Card
                                 key={index}
-                                title={item.title}
-                                price={item.price}
-                                url={item.url}
-                                alt={item.alt}
-                                onLike={(obj) => console.log('Hallo')} //onAddFavorite(obj)}
+                                onLike={(obj) => onAddFavorite(obj)}
                                 onPlus={(obj) => onAddToCart(obj)}
+                                { ...item }
                             />
                         ))
                 }

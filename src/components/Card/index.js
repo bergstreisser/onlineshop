@@ -1,17 +1,17 @@
 import React from 'react';
 import styles from './Card.module.scss';
 
-function Card({title, url, alt, price, onLike, onPlus}) {
+function Card({ id, title, url, alt, price, onLike, onPlus, isFavorited = false }) {
     const [isAdded, setIsAdded] = React.useState(false);
-    const [isLiked, setIsLiked] = React.useState(false);
+    const [isLiked, setIsLiked] = React.useState(isFavorited);
 
     const onClickPlus = () => {
-        onPlus({ title, url, alt, price });
+        onPlus({ id, title, url, alt, price });
         setIsAdded(!isAdded);
     }
 
     const onClickLike = () => {
-        onLike({ title, url, alt, price });
+        onLike({ id, title, url, alt, price });
         setIsLiked(!isLiked);
     }
 

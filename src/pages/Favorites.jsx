@@ -1,5 +1,4 @@
 import React from 'react';
-import Data from '../data/db.json';
 import Card from '../components/Card';
 
 function Favorites({
@@ -7,8 +6,7 @@ function Favorites({
     searchValue,
     setSearchValue,
     onChangeSearchInput,
-    onAddFavorite,
-    onAddToCart
+    onAddFavorite
 }) {
 
     return (
@@ -17,12 +15,12 @@ function Favorites({
             <h1 className="mb-40">Favorites</h1>
             <div className="d-flex flex-wrap">
                 {
-                    Data.map(item => (
+                    items.map(item => (
                         <Card
-                            title={item.title}
-                            price={item.price}
-                            url={item.url}
-                            alt={item.alt}
+                            onLike={(obj) => console.log('Hallo')} //onAddFavorite(obj)}
+                            onPlus={(obj) => onAddFavorite(obj)}
+                            isFavorited={true}
+                            { ...item }
                         />
                     ))
                 }
