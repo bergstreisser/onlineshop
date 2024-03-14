@@ -52,19 +52,19 @@ function App() {
       {cartOpened && <Basket items={cartItems} onClose={() => setCartOpened(false)} onRemove={onRemoveItem} />}
       <Header onClickCart={() => setCartOpened(true)} />
 
-          <Route exact path="/">
-            <Home
-              items={items}
-              searchValue={searchValue}
-              setSearchValue={searchValue}
-              onChangeSearchInput={onChangeSearchInput}
-              onAddFavorite={onAddFavorite}
-              onAddToCart={onAddToCart}
-            />
-          </Route>
-          <Route exact path="/Favorites">
-            <Favorites />
-          </Route>
+      <Route exact path="/">
+        <Home
+          items={items}
+          searchValue={searchValue}
+          setSearchValue={searchValue}
+          onChangeSearchInput={onChangeSearchInput}
+          onAddFavorite={onAddFavorite}
+          onAddToCart={onAddToCart}
+        />
+      </Route>
+      <Route exact path="/Favorites">
+        <Favorites />
+      </Route>
 
     </div>
   );
