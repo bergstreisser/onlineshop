@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "title": "Meer",
+        "price": 25,
+        "url": "/img/pictures/06.jpg",
+        "alt": "Bild1"
+    },
+    {
+        "id": 2,
+        "title": "Berge",
+        "price": 35,
+        "url": "/img/pictures/07.jpg",
+        "alt": "Bild1"
+    },
+    {
+        "id": 3,
+        "title": "Sonnenuntergang",
+        "price": 15,
+        "url": "/img/pictures/08.jpg",
+        "alt": "Bild1"
+    },
+    {
+        "id": 4,
+        "title": "Feld",
+        "price": 35,
+        "url": "/img/pictures/09.jpg",
+        "alt": "Bild1"
+    },
+    {
+        "id": 5,
+        "title": "Hügel",
+        "price": 15,
+        "url": "/img/pictures/10.jpg",
+        "alt": "Bild1"
+    }
+]

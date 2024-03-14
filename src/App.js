@@ -63,7 +63,9 @@ function App() {
         />
       </Route>
       <Route exact path="/Favorites">
-        <Favorites />
+        <Favorites 
+        
+        />
       </Route>
 
     </div>
