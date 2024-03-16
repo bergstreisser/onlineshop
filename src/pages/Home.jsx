@@ -2,8 +2,8 @@ import React from 'react';
 import Card from '../components/Card';
 import Data from '../data/db.json';
 
-function Home({ 
-    items, 
+function Home({  
+    cartItems,
     searchValue, 
     setSearchValue, 
     onChangeSearchInput, 
@@ -31,8 +31,9 @@ function Home({
                         .map((item, index) => (
                             <Card
                                 key={index}
-                                onLike={(obj) => onAddFavorite(obj)}
-                                onPlus={(obj) => onAddToCart(obj)}
+                                onLike={(item) => onAddFavorite(item)}
+                                onPlus={(item) => onAddToCart(item)}
+                                addedToCart={cartItems.some(obj => Number(obj.id) === Number(item.id))}
                                 { ...item }
                             />
                         ))

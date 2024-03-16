@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './Card.module.scss';
 
-function Card({ id, title, url, alt, price, onLike, onPlus, isFavorited = false }) {
-    const [isAdded, setIsAdded] = React.useState(false);
+function Card({ id, title, url, alt, price, onLike, onPlus, isFavorited = false, addedToCart = false }) {
+    const [isAdded, setIsAdded] = React.useState(addedToCart);
     const [isLiked, setIsLiked] = React.useState(isFavorited);
 
     const onClickPlus = () => {

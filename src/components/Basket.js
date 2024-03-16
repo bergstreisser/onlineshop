@@ -14,7 +14,7 @@ function Basket({ onClose, onRemove, items = [] }) {
                         <div>
                             <div className="items">
                                 {items.map((item) => (
-                                    <div className="cartItem mb-20 d-flex">
+                                    <div key={item.id} className="cartItem mb-20 d-flex">
                                         <img className="mr-20" width={120} height={70} src={item.url} alt={item.alt} />
 
                                         <div className="cardPos d-flex justify-between align-center">
