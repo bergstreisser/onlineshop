@@ -1,16 +1,31 @@
 import React from 'react';
 import Card from '../components/Card';
-import Data from '../data/db.json';
 
-function Home({  
+function Home({
+    items,
     cartItems,
-    searchValue, 
-    setSearchValue, 
-    onChangeSearchInput, 
-    onAddFavorite, 
-    onAddToCart 
+    searchValue,
+    setSearchValue,
+    onChangeSearchInput,
+    onAddFavorite,
+    onAddToCart,
+    isLoading
 }) {
-
+    const renderItems = () => {
+        const filteredItems = items && items.filter((item) => item.title.toLowerCase().includes(searchValue.toLocaleLowerCase()));
+        //map rendert so oft, wieviel Elemente in items sind
+        //index ist notwendig, wenn ein Element gelöscht werden muss 
+        return (isLoading ? [...Array(8)] : filteredItems).map((item, index) => (
+            <Card
+                key={index}
+                onLike={(item) => onAddFavorite(item)}
+                onPlus={(item) => onAddToCart(item)}
+                addedToCart={cartItems.some(obj => Number(obj.id) === Number(item.id))}
+                loading={isLoading}
+                {...item}
+            />
+        ));
+    }
     return (
         <div className="content p-40">
 
@@ -23,22 +38,7 @@ function Home({
                 </div>
             </div>
 
-            <div className="d-flex flex-wrap">
-                {
-                    //map rendert so oft, wieviel Elemente in items sind
-                    //index ist notwendig, wenn ein Element gelöscht werden muss 
-                    Data.filter((item) => item.title.toLowerCase().includes(searchValue.toLocaleLowerCase()))
-                        .map((item, index) => (
-                            <Card
-                                key={index}
-                                onLike={(item) => onAddFavorite(item)}
-                                onPlus={(item) => onAddToCart(item)}
-                                addedToCart={cartItems.some(obj => Number(obj.id) === Number(item.id))}
-                                { ...item }
-                            />
-                        ))
-                }
-            </div>
+            <div className="d-flex flex-wrap">{renderItems()}</div>
 
         </div>
     );

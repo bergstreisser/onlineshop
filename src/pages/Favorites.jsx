@@ -1,11 +1,13 @@
 import React from 'react';
 import Card from '../components/Card';
+import AppContext from '../context';
 
 function Favorites({
-    favorites,
     onRemoveFavorite,
     onAddToCart
 }) {
+
+    const { favorites } = React.useContext(AppContext);
 
     return (
         <div className="content p-40">
@@ -13,7 +15,7 @@ function Favorites({
             <h1 className="mb-40">Favorites</h1>
             <div className="d-flex flex-wrap">
                 {
-                    favorites.map(item => (
+                favorites.map(item => (
                         <Card
                             onLike={(obj) => onRemoveFavorite(obj)}
                             onPlus={(obj) => onAddToCart(obj)}
@@ -23,8 +25,7 @@ function Favorites({
                     ))
                 }
             </div>
-
-
+            
         </div>
     );
 }
