@@ -1,3 +1,6 @@
+import React from 'react';
+import Info from "./Info";
+
 function Basket({ onClose, onRemove, items = [] }) {
     return (
         <div className="overlay">
@@ -11,7 +14,7 @@ function Basket({ onClose, onRemove, items = [] }) {
                 {
                     items.length > 0 ? (
 
-                        <div>
+                        <div className="d-flex flex-column flex">
                             <div className="items">
                                 {items.map((item) => (
                                     <div key={item.id} className="cartItem mb-20 d-flex">
@@ -49,21 +52,11 @@ function Basket({ onClose, onRemove, items = [] }) {
                         </div>
 
                     ) : (
-
-                        <div className="cartEmptyBlock">
-                            <img className="empty-basket" src="/img/empty-basket.svg" alt="empty-basket" />
-                            <ul>
-                                <li>
-                                    <h2>Der Einkaufswagen ist leer</h2>
-                                </li>
-                                <li>
-                                    <p>Bittte fügen Sie wenigstens ein Artikel hinzu!</p>
-                                </li>
-                            </ul>
-                            <div>
-                                <button onClick={onClose} className="backBtn">Zurück zur Übersicht</button>
-                            </div>
-                        </div>
+                        <Info
+                            title={"Der Einkaufskorb ist leer"}
+                            description={"Bitte fügen Sie wenigstens ein Artikel hinzu"}
+                            image={"/img/empty-basket.svg"}
+                        />
                     )
                 }
 

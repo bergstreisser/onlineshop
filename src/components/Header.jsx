@@ -9,7 +9,7 @@ function Header(props) {
                     <img alt="logo" width={65} height={55} src="/img/logo.jpg" />
                     <div className="headerInfo">
                         <h3 className="text-uppercase">Die schönsten Bilder</h3>
-                        <p className="opacity-5">Hier kannst du Bilder kaufen...</p>
+                        <p className="opacity-5">Dies ist ein Testprojekt mit React...</p>
                     </div>
                 </div>
             </Link>

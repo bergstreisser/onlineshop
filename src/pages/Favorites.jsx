@@ -15,8 +15,9 @@ function Favorites({
             <h1 className="mb-40">Favorites</h1>
             <div className="d-flex flex-wrap">
                 {
-                favorites.map(item => (
+                favorites.map((item, index) => (
                         <Card
+                            key={index}
                             onLike={(obj) => onRemoveFavorite(obj)}
                             onPlus={(obj) => onAddToCart(obj)}
                             isFavorited={true}

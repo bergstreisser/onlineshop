@@ -3,14 +3,14 @@ import Card from '../components/Card';
 
 function Home({
     items,
-    cartItems,
     searchValue,
     setSearchValue,
     onChangeSearchInput,
     onAddFavorite,
     onAddToCart,
-    isLoading
+    isLoading,
 }) {
+
     const renderItems = () => {
         const filteredItems = items && items.filter((item) => item.title.toLowerCase().includes(searchValue.toLocaleLowerCase()));
         //map rendert so oft, wieviel Elemente in items sind
@@ -20,7 +20,7 @@ function Home({
                 key={index}
                 onLike={(item) => onAddFavorite(item)}
                 onPlus={(item) => onAddToCart(item)}
-                addedToCart={cartItems.some(obj => Number(obj.id) === Number(item.id))}
+                //addedToCart={isItemAdded(item && item.id)}
                 loading={isLoading}
                 {...item}
             />

@@ -72,8 +72,12 @@ function App() {
     setSearchValue(event.target.value);
   }
 
+  const isItemAdded = (id) => {
+    return cartItems.some(obj => Number(obj.id) === Number(id));
+  }
+
   return (
-    <AppContext.Provider value={{ items, cartItems, favorites }}>
+    <AppContext.Provider value={{ items, cartItems, favorites, isItemAdded, setCartOpened }}>
       <div className="wrapper clear">
         {/* wenn cartOpened ist true, dann wird Basket abgebildet */}
         {cartOpened && <Basket items={cartItems} onClose={() => setCartOpened(false)} onRemove={onRemoveItem} />}

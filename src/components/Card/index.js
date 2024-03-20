@@ -1,14 +1,14 @@
 import React from 'react';
 import ContentLoader from "react-content-loader"
 import styles from './Card.module.scss';
+import AppContext from '../../context';
 
-function Card({ id, title, url, alt, price, onLike, onPlus, isFavorited = false, addedToCart = false, loading = false }) {
-    const [isAdded, setIsAdded] = React.useState(addedToCart);
+function Card({ id, title, url, alt, price, onLike, onPlus, isFavorited = false, loading = false }) {
+    const { isItemAdded } = React.useContext(AppContext);
     const [isLiked, setIsLiked] = React.useState(isFavorited);
 
     const onClickPlus = () => {
         onPlus({ id, title, url, alt, price });
-        setIsAdded(!isAdded);
     }
 
     const onClickLike = () => {
@@ -47,7 +47,7 @@ function Card({ id, title, url, alt, price, onLike, onPlus, isFavorited = false,
                                 <b>{price} Euro</b>
                             </div>
                             <div>
-                                <img className={styles.btnPlus} onClick={onClickPlus} src={isAdded ? "/img/checked.svg" : "/img/plus.svg"} alt="Plus" />
+                                <img className={styles.btnPlus} onClick={onClickPlus} src={isItemAdded(id) ? "/img/checked.svg" : "/img/plus.svg"} alt="Plus" />
                             </div>
                         </div>
                     </>
