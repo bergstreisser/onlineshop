@@ -1,7 +1,38 @@
 import React from 'react';
-import Info from "./Info";
+import Info from './Info';
+import AppContext from '../context';
+import axios from 'axios';
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function Basket({ onClose, onRemove, items = [] }) {
+    const { cartItems, setCartItems } = React.useContext(AppContext);
+    //const { orderId, setOrderId } = React.useState(null);
+    const [isOrderComplete, setIsOrderComplete] = React.useState(false);
+    const [isLoading, setIsLoading] = React.useState(false);
+
+    const onClickOrder = async () => {
+        try {
+            setIsLoading(true);
+            // const {data} = await axios.post('/orders', {
+            //     items: cartItems,
+            // });
+            //setOrderId(data.id);
+            setIsOrderComplete(true);
+            setCartItems([]);
+
+            for (let i = 0; i < cartItems.length; i++) {
+                const item = cartItems[i];
+                await axios.delete(`https://65e5b5d4d7f0758a76e7220e.mockapi.io/cart/${item.id}`);
+                await delay(1000);
+            }
+
+        } catch (error) {
+            alert('Bestellung konnte nicht ausgeführt werden');
+        }
+        setIsLoading(false);
+    }
+
     return (
         <div className="overlay">
             <div className="basket">
@@ -46,16 +77,16 @@ function Basket({ onClose, onRemove, items = [] }) {
                                     </li>
                                 </ul>
                                 <div>
-                                    <button className="greenButton">Bestellung abschließen<img src="/img/arrow.svg" alt="Arrow" /></button>
+                                    <button disabled={isLoading} onClick={onClickOrder} className="greenButton">Bestellung abschließen<img src="/img/arrow.svg" alt="Arrow" /></button>
                                 </div>
                             </div>
                         </div>
 
                     ) : (
                         <Info
-                            title={"Der Einkaufskorb ist leer"}
-                            description={"Bitte fügen Sie wenigstens ein Artikel hinzu"}
-                            image={"/img/empty-basket.svg"}
+                            title={isOrderComplete ? "Bestellung abgeschlossen!" : "Der Einkaufskorb ist leer"}
+                            description={isOrderComplete ? "Ihre Bestellung wird zum Versenden vorbereitet" : "Bitte fügen Sie wenigstens ein Artikel hinzu"}
+                            image={isOrderComplete ? "/img/order.png" : "/img/empty-basket.svg"}
                         />
                     )
                 }
