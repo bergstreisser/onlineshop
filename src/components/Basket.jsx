@@ -3,12 +3,12 @@ import Info from './Info';
 import axios from 'axios';
 import { useCart } from '../hooks/useCart';
 
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 function Basket({ onClose, onRemove, items = [] }) {
     const { cartItems, setCartItems, tax, priceIncTax } = useCart();
     const [isOrderComplete, setIsOrderComplete] = React.useState(false);
     const [isLoading, setIsLoading] = React.useState(false);
-
-    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
     const onClickOrder = async () => {
         try {
@@ -79,7 +79,7 @@ function Basket({ onClose, onRemove, items = [] }) {
 
                     ) : (
                         <Info
-                            title={isOrderComplete ? "Bestellung abgeschlossen!" : "Der Einkaufskorb ist leer"}
+                            title={isOrderComplete ? "Bestellung abgeschlossen!" : "Der Einkaufswagen ist leer"}
                             description={isOrderComplete ? "Ihre Bestellung wird zum Versenden vorbereitet ( natürlich nicht wirklich :-) )" : "Bitte fügen Sie wenigstens ein Artikel hinzu"}
                             image={isOrderComplete ? "/img/order.png" : "/img/empty-basket.svg"}
                         />

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useCart } from '../hooks/useCart';
 
 function Header(props) {
-    const { priceIncTax } = useCart();
+    const { totalPrice } = useCart();
 
     return (
         <header className="d-flex justify-between align-center p-40">
@@ -21,11 +21,11 @@ function Header(props) {
             <ul className="d-flex">
                 <li className="cart d-flex align-center">
                     <img onClick={props.onClickCart} alt="cart" width={25} height={25} src="/img/cart.svg" />
-                    <b onClick={props.onClickCart}>{priceIncTax.toFixed(2)} Euro</b>
+                    <b onClick={props.onClickCart}>{totalPrice.toFixed(2)} Euro</b>
                 </li>
                 <li className="d-flex align-center ml-10 mt-5">
                     <Link to={"/favorites"}>
-                        <img alt="heart" width={25} height={25} src="/img/heart-liked.png" />
+                        <img alt="heart" width={27} height={27} src="/img/heart-liked.png" />
                     </Link>
                 </li>
             </ul>

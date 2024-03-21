@@ -20,7 +20,6 @@ function Home({
                 key={index}
                 onLike={(item) => onAddFavorite(item)}
                 onPlus={(item) => onAddToCart(item)}
-                //addedToCart={isItemAdded(item && item.id)}
                 loading={isLoading}
                 {...item}
             />

@@ -7,5 +7,5 @@ export const useCart = () => {
     const tax = (totalPrice * 19) / 100;
     const priceIncTax = totalPrice + tax;
 
-    return { cartItems, setCartItems, tax, priceIncTax };
+    return { cartItems, setCartItems, tax, totalPrice, priceIncTax };
 };
