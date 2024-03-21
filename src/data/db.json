@@ -1,14 +1,14 @@
 [
     {
       "id": "1",
-      "title": "Schönste Wasserfall",
+      "title": "Wasserfall",
       "price": 25,
       "url": "/img/pictures/01.jpg",
       "alt": "Bild1"
     },
     {
       "id": "2",
-      "title": "Schönste Strand",
+      "title": "Strand",
       "price": 28,
       "url": "/img/pictures/02.jpg",
       "alt": "Bild1"

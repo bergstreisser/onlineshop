@@ -1,23 +1,18 @@
 import React from 'react';
 import Info from './Info';
-import AppContext from '../context';
 import axios from 'axios';
-
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+import { useCart } from '../hooks/useCart';
 
 function Basket({ onClose, onRemove, items = [] }) {
-    const { cartItems, setCartItems } = React.useContext(AppContext);
-    //const { orderId, setOrderId } = React.useState(null);
+    const { cartItems, setCartItems, tax, priceIncTax } = useCart();
     const [isOrderComplete, setIsOrderComplete] = React.useState(false);
     const [isLoading, setIsLoading] = React.useState(false);
+
+    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
     const onClickOrder = async () => {
         try {
             setIsLoading(true);
-            // const {data} = await axios.post('/orders', {
-            //     items: cartItems,
-            // });
-            //setOrderId(data.id);
             setIsOrderComplete(true);
             setCartItems([]);
 
@@ -68,12 +63,12 @@ function Basket({ onClose, onRemove, items = [] }) {
                                     <li>
                                         <span>MwSt. 19%</span>
                                         <div></div>
-                                        <b>18,81 Euro</b>
+                                        <b>{tax.toFixed(2)} Euro</b>
                                     </li>
                                     <li>
                                         <span>Gesamt inkl. MwSt:</span>
                                         <div></div>
-                                        <b>99 Euro</b>
+                                        <b>{priceIncTax.toFixed(2)} Euro</b>
                                     </li>
                                 </ul>
                                 <div>
@@ -85,7 +80,7 @@ function Basket({ onClose, onRemove, items = [] }) {
                     ) : (
                         <Info
                             title={isOrderComplete ? "Bestellung abgeschlossen!" : "Der Einkaufskorb ist leer"}
-                            description={isOrderComplete ? "Ihre Bestellung wird zum Versenden vorbereitet" : "Bitte fügen Sie wenigstens ein Artikel hinzu"}
+                            description={isOrderComplete ? "Ihre Bestellung wird zum Versenden vorbereitet ( natürlich nicht wirklich :-) )" : "Bitte fügen Sie wenigstens ein Artikel hinzu"}
                             image={isOrderComplete ? "/img/order.png" : "/img/empty-basket.svg"}
                         />
                     )
