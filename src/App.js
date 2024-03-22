@@ -114,7 +114,7 @@ function App() {
             isLoading={isLoading}
           />
         </Route>
-        <Route exact path="/Favorites">
+        <Route exact path="Favorites">
           <Favorites
             onAddFavorite={onAddFavorite}
             onRemoveFavorite={onRemoveFavorite}
