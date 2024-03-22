@@ -8,7 +8,7 @@ function Header(props) {
     return (
         <header className="d-flex justify-between align-center p-40">
 
-            <Link to={"Home"}>
+            <Link to={""}>
                 <div className="d-flex align-center">
                     <img alt="logo" width={65} height={55} src="img/logo.jpg" />
                     <div className="headerInfo">
@@ -24,7 +24,7 @@ function Header(props) {
                     <b onClick={props.onClickCart}>{totalPrice.toFixed(2)} Euro</b>
                 </li>
                 <li className="d-flex align-center ml-10 mt-5">
-                    <Link to={"Favorites"}>
+                    <Link to={"favorites"}>
                         <img alt="heart" width={27} height={27} src="img/heart-liked.png" />
                     </Link>
                 </li>
