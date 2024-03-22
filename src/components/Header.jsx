@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { useCart } from '../hooks/useCart';
 
 function Header(props) {
@@ -13,7 +13,7 @@ function Header(props) {
                     <img alt="logo" width={65} height={55} src="img/logo.jpg" />
                     <div className="headerInfo">
                         <h3 className="text-uppercase">Die schönsten Bilder</h3>
-                        <p className="opacity-5">Dies ist ein Testprojekt mit React...</p>
+                        <p className="opacity-5">Dies ist ein React-Testprojekt...</p>
                     </div>
                 </div>
             {/* </Link> */}

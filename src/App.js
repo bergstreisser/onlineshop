@@ -52,6 +52,7 @@ function App() {
       }
     } catch (error) {
       alert('hinzufügen nicht geklappt...')
+      console.error(error);
     }
   }
 
@@ -67,10 +68,16 @@ function App() {
 
   const onAddFavorite = async (obj) => {
     try {
-      const { data } = await axios.post(`https://65e5b5d4d7f0758a76e7220e.mockapi.io/favorites/`, obj)
-      setFavorites(prev => [...prev, data]);
+      if (favorites.find((favObj) => Number(favObj.id) === Number(obj.id))) {
+        axios.delete(`https://65e5b5d4d7f0758a76e7220e.mockapi.io/favorites/${obj.id}`);
+        setFavorites((prev) => prev.filter((item) => Number(item.id) !== Number(obj.id)));
+      } else {
+        const { data } = await axios.post(`https://65e5b5d4d7f0758a76e7220e.mockapi.io/favorites/`, obj)
+        setFavorites(prev => [...prev, data]);
+      }
     } catch (error) {
       alert('hinzufügen nicht geklappt...')
+      console.error(error);
     }
   }
 
