@@ -3,70 +3,70 @@
       "id": "1",
       "title": "Wasserfall",
       "price": 25,
-      "url": "/img/pictures/01.jpg",
+      "url": "img/pictures/01.jpg",
       "alt": "Bild1"
     },
     {
       "id": "2",
       "title": "Strand",
       "price": 28,
-      "url": "/img/pictures/02.jpg",
+      "url": "img/pictures/02.jpg",
       "alt": "Bild1"
     },
     {
       "id": "3",
       "title": "Bäume",
       "price": 20,
-      "url": "/img/pictures/03.jpg",
+      "url": "img/pictures/03.jpg",
       "alt": "Bild1"
     },
     {
       "id": "4",
       "title": "Tropfen",
       "price": 25,
-      "url": "/img/pictures/04.jpg",
+      "url": "img/pictures/04.jpg",
       "alt": "Bild1"
     },
     {
       "id": "5",
       "title": "Baum",
       "price": 45,
-      "url": "/img/pictures/05.jpg",
+      "url": "img/pictures/05.jpg",
       "alt": "Bild1"
     },
     {
       "id": "6",
       "title": "Meer",
       "price": 25,
-      "url": "/img/pictures/06.jpg",
+      "url": "img/pictures/06.jpg",
       "alt": "Bild1"
     },
     {
       "id": "7",
       "title": "Berge",
       "price": 35,
-      "url": "/img/pictures/07.jpg",
+      "url": "img/pictures/07.jpg",
       "alt": "Bild1"
     },
     {
       "id": "8",
       "title": "Sonnenuntergang",
       "price": 15,
-      "url": "/img/pictures/08.jpg",
+      "url": "img/pictures/08.jpg",
       "alt": "Bild1"
     },
     {
       "id": "9",
       "title": "Feld",
       "price": 35,
-      "url": "/img/pictures/09.jpg",
+      "url": "img/pictures/09.jpg",
       "alt": "Bild1"
     },
     {
       "id": "10",
       "title": "Hügel",
       "price": 15,
-      "url": "/img/pictures/10.jpg",
+      "url": "img/pictures/10.jpg",
       "alt": "Bild1"
     }
   ]

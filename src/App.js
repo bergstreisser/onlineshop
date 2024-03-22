@@ -102,7 +102,7 @@ function App() {
         {cartOpened && <Basket items={cartItems} onClose={() => setCartOpened(false)} onRemove={onRemoveItem} />}
         <Header onClickCart={() => setCartOpened(true)} />
 
-        <Route exact path="/">
+        <Route exact path="">
           <Home
             items={items}
             cartItems={cartItems}
