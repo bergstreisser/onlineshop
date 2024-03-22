@@ -31,9 +31,9 @@ function Home({
             <div className="d-flex mb-40 align-center justify-between">
                 <h1>{searchValue ? `Suche nach: "${searchValue}"` : 'Alle Bilder'}</h1>
                 <div className="search-block d-flex">
-                    <img className="searchIcon" src="/img/search.svg" alt="Search" />
+                    <img className="searchIcon" src="img/search.svg" alt="Search" />
                     <input onChange={onChangeSearchInput} value={searchValue} placeholder="suchen... " />
-                    {searchValue && <img onClick={() => setSearchValue('')} className="closeSearchBtn" src="/img/close.svg" alt="Close" />}
+                    {searchValue && <img onClick={() => setSearchValue('')} className="closeSearchBtn" src="img/close.svg" alt="Close" />}
                 </div>
             </div>
 

@@ -34,7 +34,7 @@ function Basket({ onClose, onRemove, items = [] }) {
 
                 <div className="d-flex justify-between">
                     <h2 className="mb-30">Einkaufswagen</h2>
-                    <img onClick={onClose} className="closeBtn mr-15" src="/img/close.svg" alt="Remove" />
+                    <img onClick={onClose} className="closeBtn mr-15" src="img/close.svg" alt="Remove" />
                 </div>
 
                 {
@@ -51,7 +51,7 @@ function Basket({ onClose, onRemove, items = [] }) {
                                                 <span>{item.title}</span>
                                                 <b>{item.price} Euro</b>
                                             </div>
-                                            <img onClick={() => onRemove(item.id)} className="removeBtn" src="/img/remove.svg" alt="Remove" />
+                                            <img onClick={() => onRemove(item.id)} className="removeBtn" src="img/remove.svg" alt="Remove" />
                                         </div>
 
                                     </div>
@@ -72,7 +72,7 @@ function Basket({ onClose, onRemove, items = [] }) {
                                     </li>
                                 </ul>
                                 <div>
-                                    <button disabled={isLoading} onClick={onClickOrder} className="greenButton">Bestellung abschließen<img src="/img/arrow.svg" alt="Arrow" /></button>
+                                    <button disabled={isLoading} onClick={onClickOrder} className="greenButton">Bestellung abschließen<img src="img/arrow.svg" alt="Arrow" /></button>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,7 @@ function Basket({ onClose, onRemove, items = [] }) {
                         <Info
                             title={isOrderComplete ? "Bestellung abgeschlossen!" : "Der Einkaufswagen ist leer"}
                             description={isOrderComplete ? "Ihre Bestellung wird zum Versenden vorbereitet ( natürlich nicht wirklich :-) )" : "Bitte fügen Sie wenigstens ein Artikel hinzu"}
-                            image={isOrderComplete ? "/img/order.png" : "/img/empty-basket.svg"}
+                            image={isOrderComplete ? "img/order.png" : "img/empty-basket.svg"}
                         />
                     )
                 }
