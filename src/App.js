@@ -68,9 +68,9 @@ function App() {
 
   const onAddFavorite = async (obj) => {
     try {
-      if (favorites.find((favObj) => Number(favObj.id) === Number(obj.id))) {
+      if (favorites.find((favObj) => Number(favObj.parentId) === Number(obj.id))) {
         axios.delete(`https://65e5b5d4d7f0758a76e7220e.mockapi.io/favorites/${obj.id}`);
-        setFavorites((prev) => prev.filter((item) => Number(item.id) !== Number(obj.id)));
+        setFavorites((prev) => prev.filter((item) => Number(item.parentId) !== Number(obj.id)));
       } else {
         const { data } = await axios.post(`https://65e5b5d4d7f0758a76e7220e.mockapi.io/favorites/`, obj)
         setFavorites(prev => [...prev, data]);
@@ -83,9 +83,9 @@ function App() {
 
   const onRemoveFavorite = (obj) => {
     try {
-      if (favorites.find(favObj => Number(favObj.id) === Number(obj.id))) {
+      if (favorites.find(favObj => Number(favObj.parentId) === Number(obj.id))) {
         axios.delete(`https://65e5b5d4d7f0758a76e7220e.mockapi.io/favorites/${obj.id}`);
-        setFavorites((prev) => prev.filter((item) => Number(item.id) !== Number(obj.id)));
+        setFavorites((prev) => prev.filter((item) => Number(item.parentId) !== Number(obj.id)));
       }
     } catch (error) {
       alert('Fehler!');
