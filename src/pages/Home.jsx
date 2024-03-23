@@ -33,7 +33,7 @@ function Home({
                 <div className="search-block d-flex">
                     <img className="searchIcon" src="img/search.svg" alt="Search" />
                     <input maxlength="25" onChange={onChangeSearchInput} value={searchValue} placeholder="suchen... " />
-                    {searchValue && <img onClick={() => setSearchValue('')} className="closeSearchBtn" src="img/close.svg" alt="Close" />}
+                    {/* {searchValue && <img onClick={() => setSearchValue('')} className="closeSearchBtn" src="img/close.svg" alt="Close" />} */}
                 </div>
             </div>
 
