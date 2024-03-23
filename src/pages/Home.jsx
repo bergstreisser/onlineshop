@@ -29,7 +29,7 @@ function Home({
         <div className="content p-40">
 
             <div className="d-flex mb-40 align-center justify-between">
-                <h1>{searchValue ? `Suche nach: "${searchValue}"` : 'Alle Bilder'}</h1>
+                <h2>{searchValue ? `Suche nach: "${searchValue}"` : 'Alle Bilder'}</h2>
                 <div className="search-block d-flex">
                     <img className="searchIcon" src="img/search.svg" alt="Search" />
                     <input maxlength="15" onChange={onChangeSearchInput} value={searchValue} placeholder="suchen... " />
