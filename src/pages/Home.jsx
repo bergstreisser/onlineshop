@@ -28,7 +28,7 @@ function Home({
     return (
         <div className="content p-40">
 
-            <div className="d-flex mb-40 align-center justify-between">
+            <div className="d-flex mb-20 align-center justify-between">
                 <h2>{searchValue ? `Suche nach: "${searchValue}"` : 'Alle Bilder'}</h2>
                 <div className="search-block d-flex">
                     <img className="searchIcon" src="img/search.svg" alt="Search" />
