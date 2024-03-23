@@ -39,7 +39,7 @@ function Card({ id, title, url, alt, price, onLike, onPlus, isFavorited = false,
 
                 ) : (
                     <>
-                        <img className={styles.btnUnliked} onClick={onClickLike} src={isLiked ? "img/heart-liked.png" : "img/heart-unliked.png"} alt="Unliked" />
+                        {/* <img className={styles.btnUnliked} onClick={onClickLike} src={isLiked ? "img/heart-liked.png" : "img/heart-unliked.png"} alt="Unliked" /> */}
                         <img width={155} height={135} src={url} alt={alt} />
                         <h5>{title}</h5>
                         <div className="d-flex justify-between align-center">
