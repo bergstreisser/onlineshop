@@ -6,7 +6,7 @@ import { useCart } from '../hooks/useCart';
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function Basket({ onClose, onRemove, items = [] }) {
-    const { cartItems, setCartItems, tax, priceIncTax } = useCart();
+    const { cartItems, setCartItems, tax, totalPrice } = useCart();
     const [isOrderComplete, setIsOrderComplete] = React.useState(false);
     const [isLoading, setIsLoading] = React.useState(false);
 
@@ -68,7 +68,7 @@ function Basket({ onClose, onRemove, items = [] }) {
                                     <li>
                                         <span>Gesamt inkl. MwSt:</span>
                                         <div></div>
-                                        <b>{priceIncTax.toFixed(2)} Euro</b>
+                                        <b>{totalPrice.toFixed(2)} Euro</b>
                                     </li>
                                 </ul>
                                 <div>

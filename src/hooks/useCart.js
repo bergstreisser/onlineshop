@@ -5,7 +5,6 @@ export const useCart = () => {
     const { cartItems, setCartItems } = React.useContext(AppContext);
     const totalPrice = cartItems.reduce((sum, obj) => obj.price + sum, 0);
     const tax = (totalPrice * 19) / 100;
-    const priceIncTax = totalPrice + tax;
 
-    return { cartItems, setCartItems, tax, totalPrice, priceIncTax };
+    return { cartItems, setCartItems, tax, totalPrice };
 };
